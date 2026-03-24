@@ -1,4 +1,4 @@
-const API_BASE = 'https://localhost:7043/api';
+const API_BASE = 'https://barmjly-cinema.runasp.net/api';
 
 // DOM Elements
 const moviesContainer = document.getElementById('moviesContainer');
