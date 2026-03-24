@@ -1,0 +1,13 @@
+.vs/
+.git/
+bin/
+obj/
+out/
+*.log
+Dockerfile
+.dockerignore
+node_modules/
+Cinema.Frontend/
+seed_data.py
+seed.ps1
+git_push.ps1
