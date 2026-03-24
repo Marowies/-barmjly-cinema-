@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>barmjly-cinema | Premium Booking</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="index.css">
+    <meta name="description" content="Secure your seat to the latest blockbuster movies at barmjly-cinema.">
+</head>
+<body>
+    <div class="glow-bg"></div>
+    <div class="noise-overlay"></div>
+
+    <nav class="glass-nav">
+        <div class="nav-container">
+            <h1 class="logo">barmjly<span>-cinema</span></h1>
+            <div class="nav-links">
+                <a href="#movies" class="nav-link active">Movies</a>
+                <a href="#dashboard" class="nav-link hidden" id="dashboardLink">My Tickets</a>
+                <button id="authBtn" class="premium-btn">Login / Register</button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <header class="hero-section">
+            <div class="hero-content">
+                <span class="badge">Now Showing</span>
+                <h2 class="hero-title">Experience Reality<br><span class="gradient-text">Like Never Before</span></h2>
+                <p class="hero-subtitle">Book your tickets for the most immersive cinematic journey right from your device.</p>
+                <div class="hero-actions">
+                    <button class="primary-btn glow-btn" onclick="document.getElementById('movies').scrollIntoView({behavior: 'smooth'})">Book Tickets</button>
+                </div>
+            </div>
+        </header>
+
+        <section id="movies" class="movies-grid-section">
+            <div class="section-header">
+                <h3>Blockbusters</h3>
+                <div class="header-line"></div>
+            </div>
+            
+            <div id="loading" class="loading-state">
+                <div class="spinner"></div>
+                <p>Loading the magic...</p>
+            </div>
+            <div id="error" class="error-state hidden">
+                <p>Failed to load movies. Ensure API is running.</p>
+            </div>
+
+            <div id="moviesContainer" class="movies-container hidden">
+                <!-- Movies injected here via app.js -->
+            </div>
+        </section>
+
+        <!-- Dashboard / My Tickets -->
+        <section id="dashboard" class="movies-grid-section hidden">
+            <div class="section-header">
+                <h3>My Tickets</h3>
+                <div class="header-line"></div>
+            </div>
+            <div id="ticketsContainer" class="movies-container">
+                <!-- Tickets injected here -->
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Modal for Auth -->
+    <div id="authModal" class="modal hidden">
+        <div class="modal-overlay"></div>
+        <div class="modal-content glass-card">
+            <button class="close-btn" onclick="document.getElementById('authModal').classList.remove('visible')">&times;</button>
+            <h3 id="modalTitle">Welcome Back</h3>
+            <p class="auth-subtitle">Unlock unlimited cinematic experiences.</p>
+            <form id="authForm" class="auth-form">
+                <div class="input-group">
+                    <label>Email</label>
+                    <input type="email" id="email" required placeholder="name@domain.com">
+                </div>
+                <div class="input-group">
+                    <label>Password</label>
+                    <input type="password" id="password" required placeholder="••••••••">
+                </div>
+                <button type="submit" class="primary-btn glow-btn w-100">Login</button>
+            </form>
+            <p class="toggle-auth">Don't have an account? <span id="toggleAuthMode">Register</span></p>
+            <div id="authError" class="error-msg hidden"></div>
+        </div>
+    </div>
+
+    <!-- Modal for Showtimes -->
+    <div id="showtimesModal" class="modal hidden">
+        <div class="modal-overlay"></div>
+        <div class="modal-content glass-card" style="max-width: 600px;">
+            <button class="close-btn" onclick="document.getElementById('showtimesModal').classList.remove('visible')">&times;</button>
+            <h3 id="showtimesTitle">Select Showtime</h3>
+            <div id="showtimesList" class="showtimes-list">
+                <!-- Showtimes injected here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Basic Notifications -->
+    <div id="toast" class="toast hidden"></div>
+
+    <script src="app.js"></script>
+</body>
+</html>
